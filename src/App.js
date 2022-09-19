@@ -1,7 +1,9 @@
+import UserInput from "./components/UserInput/UserInput";
+
 const App = () => {
   return (
     <div>
-      <p>Start project</p>
+      <UserInput />
     </div>
   );
 };

@@ -2,7 +2,7 @@ Badges
 
 # User aggregator.
 
-Ф simple application to create a list of users.
+A simple application to create a list of users.
 
 [User aggregator app]()
 
