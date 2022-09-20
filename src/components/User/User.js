@@ -1,5 +1,5 @@
 const User = (props) => {
-  return <div>{`${props.name} (${props.age} years old)`}</div>;
+  return <li>{props.children}</li>;
 };
 
 export default User;
