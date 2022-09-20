@@ -11,10 +11,17 @@ const App = () => {
     })
   };
 
+  const deleteUserHandler = (userId) => {
+    setUsers((prevUsers) => {
+      const updateUsers = prevUsers.filter((user) => user.id !== userId);
+      return updateUsers; 
+    })
+  };
+
   let content = "";
 
   if (users.length > 0) {
-    content = <UserList users={users} />;
+    content = <UserList users={users} onDeleteUser={deleteUserHandler}/>;
   }
 
   return (
