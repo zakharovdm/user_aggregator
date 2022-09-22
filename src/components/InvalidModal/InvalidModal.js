@@ -1,8 +1,9 @@
 import Button from "../UI/Button/Button";
+import styles from "./InvalidModal.module.css"
 
 const InvalidModal = (props) => {
   return (
-    <div>
+    <div className={`${styles.modal} ${props.isValid ? "" : styles.invalid}`}>
       <h2>Invalid input</h2>
       <p>{props.children}</p>
       <Button type="button">Ok</Button>
