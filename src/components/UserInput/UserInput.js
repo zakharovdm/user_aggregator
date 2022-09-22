@@ -37,6 +37,10 @@ const UserInput = (props) => {
     setAge("");
   };
 
+  const clickHandler = () => {
+    setIsValid(true);
+  };
+
   let errorText = "";
 
   if (!isNotEmpty) {
@@ -68,7 +72,9 @@ const UserInput = (props) => {
         />
       </div>
       <Button type="submit">Add User</Button>
-      <InvalidModal isValid={isValid}>{errorText}</InvalidModal>
+      <InvalidModal isValid={isValid} onClick={clickHandler}>
+        {errorText}
+      </InvalidModal>
     </form>
   );
 };
