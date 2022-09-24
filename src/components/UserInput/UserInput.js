@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Button from "../UI/Button/Button";
 import InvalidModal from "../InvalidModal/InvalidModal";
+import Button from "../UI/Button/Button";
+import Card from "../UI/Card/Card";
 
 const UserInput = (props) => {
   const [username, setUserName] = useState("");
@@ -52,30 +53,34 @@ const UserInput = (props) => {
   }
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <div>
-        <label>Username</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={UserInputHandler}
-        />
-      </div>
-      <div>
-        <label>Age (Years)</label>
-        <input
-          type="number"
-          name="age"
-          value={age}
-          onChange={AgeInputHandler}
-        />
-      </div>
-      <Button type="submit">Add User</Button>
-      <InvalidModal isValid={isValid} onClick={clickHandler}>
-        {errorText}
-      </InvalidModal>
-    </form>
+    <Card>
+      <form onSubmit={formSubmitHandler}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            value={username}
+            onChange={UserInputHandler}
+          />
+        </div>
+        <div>
+          <label htmlFor="age">Age (Years)</label>
+          <input
+            id="age"
+            type="number"
+            name="age"
+            value={age}
+            onChange={AgeInputHandler}
+          />
+        </div>
+        <Button type="submit">Add User</Button>
+        <InvalidModal isValid={isValid} onClick={clickHandler}>
+          {errorText}
+        </InvalidModal>
+      </form>
+    </Card>
   );
 };
 

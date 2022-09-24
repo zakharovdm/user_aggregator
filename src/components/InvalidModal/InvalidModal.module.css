@@ -1,6 +1,8 @@
 .modal {
   display: none;
   width: 500px;
+  background-color: green;
+  margin: 0 auto;
 }
 
 .modal.invalid {
