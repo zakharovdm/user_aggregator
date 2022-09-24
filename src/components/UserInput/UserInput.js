@@ -2,6 +2,7 @@ import { useState } from "react";
 import InvalidModal from "../InvalidModal/InvalidModal";
 import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
+import styles from "./UserInput.module.css";
 
 const UserInput = (props) => {
   const [username, setUserName] = useState("");
@@ -53,28 +54,24 @@ const UserInput = (props) => {
   }
 
   return (
-    <Card>
+    <Card className={styles.input}>
       <form onSubmit={formSubmitHandler}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={UserInputHandler}
-          />
-        </div>
-        <div>
-          <label htmlFor="age">Age (Years)</label>
-          <input
-            id="age"
-            type="number"
-            name="age"
-            value={age}
-            onChange={AgeInputHandler}
-          />
-        </div>
+        <label htmlFor="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          name="username"
+          value={username}
+          onChange={UserInputHandler}
+        />
+        <label htmlFor="age">Age (Years)</label>
+        <input
+          id="age"
+          type="number"
+          name="age"
+          value={age}
+          onChange={AgeInputHandler}
+        />
         <Button type="submit">Add User</Button>
         <InvalidModal isValid={isValid} onClick={clickHandler}>
           {errorText}
