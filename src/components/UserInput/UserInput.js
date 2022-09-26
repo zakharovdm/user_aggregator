@@ -22,13 +22,13 @@ const UserInput = (props) => {
   const formSubmitHandler = (evt) => {
     evt.preventDefault();
     const user = { name: username, age: age, id: Math.random().toString() };
-    if (user.name.trim().length === 0 && user.age.trim().length === 0) {
+    if (user.name.trim().length === 0 || user.age.trim().length === 0) {
       setIsNotEmpty(false);
       setIsValid(false);
       return;
     }
 
-    if (user.age < 0) {
+    if (Number(user.age) < 1) {
       setIsNotNegative(false);
       setIsValid(false);
       return;
