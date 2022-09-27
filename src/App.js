@@ -7,7 +7,7 @@ const App = () => {
 
   const addUserHandler = (newUser) => {
     setUsers((prevUser) => {
-      return [newUser, ...prevUser];
+      return [...prevUser, newUser];
     })
   };
 
