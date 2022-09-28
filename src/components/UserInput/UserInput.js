@@ -41,13 +41,17 @@ const UserInput = (props) => {
     setAge("");
   };
 
+  const errorHandler = () => {
+    setError(null);
+  }
+
   return (
     <div>
       {error && (
         <InvalidModal
           title={error.title}
           message={error.message}
-          // onClick={clickHandler}
+          onError={errorHandler}
         />
       )}
       <Card className={styles.input}>

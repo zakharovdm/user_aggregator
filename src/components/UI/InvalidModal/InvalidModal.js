@@ -5,7 +5,7 @@ import styles from "./InvalidModal.module.css";
 const InvalidModal = (props) => {
   return (
     <div>
-      <div className={styles.backdrop}/>
+      <div className={styles.backdrop} onClick={props.onError}/>
       <Card className={`${styles.modal} ${props.isValid ? "" : styles.invalid}`}>
         <header className={styles.header}>
           <h2>{props.title}</h2>
@@ -14,7 +14,7 @@ const InvalidModal = (props) => {
           <p>{props.message}</p>
         </div>
         <footer className={styles.actions}>
-          <Button type="button" onClick={props.onClick}>
+          <Button type="button" onClick={props.onError}>
             Ok
           </Button>
         </footer>
