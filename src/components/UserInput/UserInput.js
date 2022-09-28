@@ -7,9 +7,7 @@ import styles from "./UserInput.module.css";
 const UserInput = (props) => {
   const [username, setUserName] = useState("");
   const [age, setAge] = useState("");
-  const [isNotEmpty, setIsNotEmpty] = useState(true);
-  const [isNotNegative, setIsNotNegative] = useState(true);
-  const [isValid, setIsValid] = useState(true);
+  const [error, setError] = useState();
 
   const UserInputHandler = (evt) => {
     setUserName(evt.target.value);
@@ -23,14 +21,18 @@ const UserInput = (props) => {
     evt.preventDefault();
     const user = { name: username, age: age, id: Math.random().toString() };
     if (user.name.trim().length === 0 || user.age.trim().length === 0) {
-      setIsNotEmpty(false);
-      setIsValid(false);
+      setError({
+        title: "Input error",
+        message: "Please enter a valid name and age (non-empty values).",
+      });
       return;
     }
 
     if (Number(user.age) < 1) {
-      setIsNotNegative(false);
-      setIsValid(false);
+      setError({
+        title: "Age error",
+        message: "Please enter a valid age (> 0).",
+      });
       return;
     }
 
@@ -39,28 +41,15 @@ const UserInput = (props) => {
     setAge("");
   };
 
-  const clickHandler = () => {
-    setIsValid(true);
-  };
-
-  let errorText = "";
-
-  if (!isNotEmpty) {
-    errorText = "Please enter a valid name and age (non-empty values).";
-  }
-
-  if (!isNotNegative) {
-    errorText = "Please enter a valid age (> 0).";
-  }
-
   return (
     <div>
-      <InvalidModal
-        title="Error"
-        message="What"
-        isValid={isValid}
-        onClick={clickHandler}
-      />
+      {error && (
+        <InvalidModal
+          title={error.title}
+          message={error.message}
+          // onClick={clickHandler}
+        />
+      )}
       <Card className={styles.input}>
         <form onSubmit={formSubmitHandler}>
           <label htmlFor="username">Username</label>
