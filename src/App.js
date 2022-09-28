@@ -7,7 +7,7 @@ const App = () => {
 
   const addUserHandler = (newUser) => {
     setUsers((prevUser) => {
-      return [...prevUser, newUser];
+      return [...prevUser, newUser ];
     })
   };
 
@@ -18,18 +18,10 @@ const App = () => {
     })
   };
 
-  let content = "";
-
-  if (users.length > 0) {
-    content = <UserList users={users} onDeleteUser={deleteUserHandler}/>;
-  }
-
   return (
     <div>
-      <section>
-        <UserInput onAddUser={addUserHandler}/>
-      </section>
-      <section>{content}</section>
+      <UserInput onAddUser={addUserHandler}/>
+      <UserList users={users} onDeleteUser={deleteUserHandler}/>
     </div>
   );
 };
