@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import InvalidModal from "../UI/InvalidModal/InvalidModal";
 import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
-import Wrapper from "../Helpers/Wrapper";
 import styles from "./UserInput.module.css";
 
 const UserInput = (props) => {
@@ -47,7 +46,7 @@ const UserInput = (props) => {
   }
 
   return (
-    <Wrapper>
+    <Fragment>
       {error && (
         <InvalidModal
           title={error.title}
@@ -76,7 +75,7 @@ const UserInput = (props) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </Wrapper>
+    </Fragment>
   );
 };
 
