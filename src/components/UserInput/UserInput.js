@@ -35,8 +35,8 @@ const UserInput = (props) => {
     }
 
     props.onAddUser(user);
-    nameInputRef.current.value = '';
-    ageInputRef.current.value = '';
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
 
   const errorHandler = () => {
@@ -55,19 +55,9 @@ const UserInput = (props) => {
       <Card className={styles.input}>
         <form onSubmit={formSubmitHandler}>
           <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            ref={nameInputRef}
-          />
+          <input id="username" type="text" name="username" ref={nameInputRef} />
           <label htmlFor="age">Age (Years)</label>
-          <input
-            id="age"
-            type="number"
-            name="age"
-            ref={ageInputRef}
-          />
+          <input id="age" type="number" name="age" ref={ageInputRef} />
           <Button type="submit">Add User</Button>
         </form>
       </Card>

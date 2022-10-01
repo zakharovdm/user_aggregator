@@ -7,21 +7,21 @@ const App = () => {
 
   const addUserHandler = (newUser) => {
     setUsers((prevUser) => {
-      return [...prevUser, newUser ];
-    })
+      return [...prevUser, newUser];
+    });
   };
 
   const deleteUserHandler = (userId) => {
     setUsers((prevUsers) => {
       const updateUsers = prevUsers.filter((user) => user.id !== userId);
-      return updateUsers; 
-    })
+      return updateUsers;
+    });
   };
 
   return (
     <Fragment>
-      <UserInput onAddUser={addUserHandler}/>
-      <UserList users={users} onDeleteUser={deleteUserHandler}/>
+      <UserInput onAddUser={addUserHandler} />
+      <UserList users={users} onDeleteUser={deleteUserHandler} />
     </Fragment>
   );
 };
