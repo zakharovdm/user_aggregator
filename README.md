@@ -19,7 +19,7 @@ A simple application to create a list of users.
 
 Clone the project
 
-`git clone git@github.com:zakharovdm/to-do-list.git`
+`git clone git@github.com:zakharovdm/user_aggregator.git`
 
 Set up the dependencies
 
